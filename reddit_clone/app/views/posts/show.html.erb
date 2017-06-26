@@ -1,0 +1,9 @@
+<h1><%= @post.title %></h1>
+
+<p>by: <%= @post.user.username %></p>
+<p><%= @post.url %></p>
+<p name="post[content]"><%= @post.content %></p>
+<br>
+<%= link_to "Edit Post", edit_post_url %>
+<br>
+<%= link_to "Back to Forum", subs_url %>
