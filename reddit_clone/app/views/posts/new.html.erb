@@ -5,14 +5,14 @@
   name="authenticity_token"
   value="<%= form_authenticity_token  %>">
 
-  <% Sub.all.each do |small_sub| %>
-      <label><%= small_sub.title %>
-        <input type="checkbox"
-                value="<%= small_sub.id %>"
-                name="post[sub_id][]"
-                <%= "checked" if @post.sub_id.include?(small_sub.id) %>>
-      </label>
-    <% end %>
+  <% Sub.all.each do |subb| %>
+  <label><%= subb.title %>
+    <input type="checkbox"
+            value="<%= subb.id %>"
+            name="post[sub_ids][]"
+            <%= "checked" if @post.sub_ids.include?(subb.id) %>>
+  </label>
+<% end %>
 
 
   <label>Title

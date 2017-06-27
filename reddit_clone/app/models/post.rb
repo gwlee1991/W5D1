@@ -1,15 +1,14 @@
 class Post < ApplicationRecord
-  validates :title, :url, :sub, :user, presence: true
+  validates :title, :url, :subs, :user, presence: true
 
   belongs_to :user
   has_many :comments, dependent: :destroy
 
+  has_many :post_subs,
+  inverse_of: :post
+
   has_many :subs,
-  through: :postsubs,
+  through: :post_subs,
   source: :sub
 
-  has_many :postsubs,
-  primary_key: :id,
-  foreign_key: :post_id,
-  class_name: :PostSub
 end

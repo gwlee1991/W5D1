@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.sub_id = params[:sub_id]
   end
 
   def create
@@ -46,6 +45,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :url, :content, :sub_id)
+    params.require(:post).permit(:title, :url, :content, sub_ids:[])
   end
 end
